@@ -66,7 +66,7 @@ def get_item_text(url:str):
    
     for paragraph in paragraphs:
       if not paragraph.is_boilerplate:
-        text += (paragraph.text+"\n")        
+        text += (paragraph.text+" ")        
 
     
    

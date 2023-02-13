@@ -61,7 +61,7 @@ def get_item_text(url:str):
    
     for paragraph in paragraphs:
       if not paragraph.is_boilerplate:
-        text += (paragraph.text+"\n")        
+        text += (paragraph.text+" ")        
    
   else:
     print("Error -> "+url)
@@ -198,7 +198,14 @@ if __name__ == '__main__':
         pool.close()
         # Wait for all tasks to complete
         pool.join()
-    ar.commit()
+    
+    try:
+        ar.commit()
+    except e:
+        print(e)
+        time.sleep(30)
+        ar.commit()
+
 
 
     data_files= glob.glob('./data/*')
